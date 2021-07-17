@@ -1,22 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&family=Roboto&display=swap');
 /*Sass template*/
 /*global classes*/
-button, button:focus {
+button,
+button:focus {
   outline: none !important;
   box-shadow: none !important;
 }
 
 /*Typography classes*/
 .font-roboto {
-  font-family: "Roboto", cursive;
+  font-family: 'Roboto', cursive;
 }
 
 .font-raleway {
-  font-family: "Raleway", cursive;
+  font-family: 'Raleway', cursive;
 }
 
 .font-poppins {
-  font-family: "Poppins", cursive;
+  font-family: 'Poppins', cursive;
 }
 
 .font-size-12 {
@@ -53,11 +54,19 @@ button, button:focus {
 }
 
 .color-white {
-  color: #F0F8FB;
+  color: #f0f8fb;
 }
 
 .color-white-bg {
-  background: #F0F8FB;
+  background: #f0f8fb;
+}
+
+.color-yellow {
+  color: #f8e21d;
+}
+
+.color-yellow-bg {
+  background: #f8e21d;
 }
 
 /*top sale template*/
