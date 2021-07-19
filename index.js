@@ -63,9 +63,11 @@ $(document).ready(function () {
     //product qty
     let $qty_up = $(".qty .qty-up");
     let $qty_down = $(".qty .qty-down");
-    let $input = $(".qty .qty-input");
+    //let $input = $(".qty .qty-input");
+
     //qty up
     $qty_up.click(function (e) {
+        let $input = $(`.qty-input[data-id='${$(this).data("id")}']`);
         if ($input.val() >= 1 && $input.val() <= 9) {
             $input.val(function (i, oldval) {
                 return ++oldval;
@@ -74,10 +76,12 @@ $(document).ready(function () {
     })
     //qty down
     $qty_down.click(function (e) {
+        let $input = $(`.qty-input[data-id='${$(this).data("id")}']`);
         if ($input.val() > 1 && $input.val() <= 10) {
             $input.val(function (i, oldval) {
                 return --oldval;
             })
         }
     })
+
 })
