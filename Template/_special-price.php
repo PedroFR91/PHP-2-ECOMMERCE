@@ -1,3 +1,8 @@
+<?php
+$brand=array_map(function($pro){return $pro['item_brand'];},$product_shuffle);
+$unique=array_unique($brand);
+sort($unique);
+?>
 <section class="special-price">
         <div class="container">
           <h4 class="font-roboto font-size-20">Precios Especiales</h4>
@@ -5,22 +10,26 @@
             <button class="btn is-checked" data-filter="*">
               Todas las marcas
             </button>
-            <button class="btn" data-filter=".Apple">Apple</button>
-            <button class="btn" data-filter=".Samsung">Samsung</button>
-            <button class="btn" data-filter=".Redmi">Redmi</button>
+            <?php
+            array_map(function($brand){
+              printf('<button class="btn" data-filter=".%s">%s</button>',$brand,$brand);
+            },$unique);
+            ?>
           </div>
           <div class="grid">
-            <div class="grid-item Apple border">
+            <?php array_map(function($item){?>
+            <div class="grid-item border <?php echo $item['ìtem_brand'] ?>">
+          
               <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
+                <div class="product font-raleway">
                   <a href="#"
                     ><img
-                      src="./assets/products/13.png"
+                      src="<?php echo $item['item_image']?>"
                       alt="product1"
                       class="img-fluid"
                   /></a>
                   <div class="text-center">
-                    <h6>Iphone</h6>
+                    <h6><?php echo $item['item_name'] ?? 'Desconocido' ?></h6>
                     <div class="rating text-warning font-size-12">
                       <span><i class="fas fa-star"></i></span>
                       <span><i class="fas fa-star"></i></span>
@@ -29,7 +38,7 @@
                       <span><i class="far fa-star"></i></span>
                     </div>
                     <div class="price py-2">
-                      <span>$15</span>
+                      <span>$<?php $item['item_price']?></span>
                     </div>
                     <button type="submit" class="btn btn-warning font-size-12">
                       Añadir a la Cesta
@@ -38,258 +47,7 @@
                 </div>
               </div>
             </div>
-            <div class="grid-item Samsung border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/11.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Samsung galaxy 10</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-item Redmi border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/3.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Redmi Note 7 Pro</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-item Apple border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/14.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Iphone</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-item Samsung border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/12.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Samsung galaxy 10</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-item Redmi border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/3.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Redmi Note 7 Pro</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-item Redmi border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/2.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Redmi Note 7 Pro</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-item Redmi border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/4.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Redmi Note 7 Pro</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-item Apple border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/14.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Iphone</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="grid-item Samsung border">
-              <div class="item py-2" style="width: 200px">
-                <div class="product font-rale">
-                  <a href="#"
-                    ><img
-                      src="./assets/products/12.png"
-                      alt="product1"
-                      class="img-fluid"
-                  /></a>
-                  <div class="text-center">
-                    <h6>Samsung galaxy 10</h6>
-                    <div class="rating text-warning font-size-12">
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="fas fa-star"></i></span>
-                      <span><i class="far fa-star"></i></span>
-                    </div>
-                    <div class="price py-2">
-                      <span>$15</span>
-                    </div>
-                    <button type="submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php },$product_shuffle)?>
           </div>
         </div>
       </section>
