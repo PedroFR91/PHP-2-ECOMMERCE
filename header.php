@@ -38,6 +38,11 @@
     />
     <!--Custom CSS file-->
     <link rel="stylesheet" href="./style.css" />
+  
+    <?php
+    //require functions
+    require ('functions.php');
+    ?>
   </head>
   <body>
     <!--Header-->

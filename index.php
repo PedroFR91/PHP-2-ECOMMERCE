@@ -10,18 +10,6 @@ include 'header.php';
      include './Template/_new-phones.php';
      include './Template/_blogs.php';
      ?>
-
-    
-
-  
-      <!--Special price-->
-     
-      <!--Banner adds-->
-      
-      <!--New phones-->
-     
-      <!--Blog-->
-      
    <?php
    include 'footer.php';
    ?>
