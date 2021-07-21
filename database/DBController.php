@@ -1,7 +1,6 @@
 <?php
 
-class DBController
-{
+class DBController{
     //Databse connection
     protected $host='localhost';
     protected $user='root';
@@ -34,4 +33,4 @@ class DBController
     }
 }
 
-
+?>
