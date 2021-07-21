@@ -18,7 +18,7 @@ sort($unique);
           </div>
           <div class="grid">
             <?php array_map(function($item){?>
-            <div class="grid-item border <?php echo $item['ìtem_brand'] ?>">
+            <div class="grid-item border <?php echo $item['item_brand'] ?>">
           
               <div class="item py-2" style="width: 200px">
                 <div class="product font-raleway">
