@@ -2,6 +2,7 @@
 $brand=array_map(function($pro){return $pro['item_brand'];},$product_shuffle);
 $unique=array_unique($brand);
 sort($unique);
+shuffle($product_shuffle);
 ?>
 <section class="special-price">
         <div class="container">
@@ -22,7 +23,7 @@ sort($unique);
           
               <div class="item py-2" style="width: 200px">
                 <div class="product font-raleway">
-                  <a href="#"
+                  <a href="<?php printf('%s?item_id=%s','product.php',$item['item_id'])  ?>"
                     ><img
                       src="<?php echo $item['item_image']?>"
                       alt="product1"
@@ -38,7 +39,7 @@ sort($unique);
                       <span><i class="far fa-star"></i></span>
                     </div>
                     <div class="price py-2">
-                      <span>$<?php $item['item_price']?></span>
+                      <span>$<?php echo $item['item_price']?></span>
                     </div>
                     <button type="submit" class="btn btn-warning font-size-12">
                       Añadir a la Cesta

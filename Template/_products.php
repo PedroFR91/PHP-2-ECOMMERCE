@@ -1,9 +1,15 @@
+<?php
+
+$item_id=$_GET['item_id']??1;
+foreach ($product->getData() as $item):
+  if($item['item_id']==$item_id):
+?>
 <section id="product" class="py-3">
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
               <img
-                src="./assets/products/1.png"
+                src="<?php echo $item['item_image']??"./assets/products/1.png"?>"
                 class="img-fluid"
                 alt="product"
               />
@@ -21,8 +27,8 @@
               </div>
             </div>
             <div class="col-sm-6 py-5">
-              <h5 class="font-poppins font-size-20">Samsung galaxy 10</h5>
-              <small>by Samsung</small>
+              <h5 class="font-poppins font-size-20"><?php echo $item['item_name']?? "Desconocido"; ?></h5>
+              <small>by <?php echo $item['item_brand']?? "Marca"; ?></small>
               <div class="d-flex">
                 <div class="rating text-warning font-size-12">
                   <span><i class="fas fa-star"></i></span>
@@ -42,7 +48,7 @@
                 </tr>
                 <tr class="font-size-14 font-raleway">
                   <td>Precio rebajado:</td>
-                  <td class="text-danger font-size-20"><span>$150</span></td>
+                  <td class="text-danger font-size-20"><span>$<?php echo $item['item_price']?? 0; ?></span></td>
                 </tr>
               </table>
               <div class="policy">
@@ -169,3 +175,7 @@
           </div>
         </div>
       </section>
+<?php
+endif;
+endforeach;
+?>
