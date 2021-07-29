@@ -30,17 +30,28 @@ class Cart
     }
     //to get user_id and item_id and insert into cart table
     public function addToCart($userid,$itemid){
-        if(isset($userid) && isset($itemid)){
+        if (isset($userid) && isset($itemid)) {
             $params=array(
                 "user_id"=>$userid,
                 "item_id"=>$itemid
             );
             //insert data into cart
             $result=$this->insertIntoCart($params);
-            if($result){
+            if ($result) {
                 //rELOAD pAGE
                 header("Location:".$_SERVER['PHP_SELF']);
             }
+        }
+    }
+    //calculate
+    public function getSum($arr)
+    {
+        if(isset($arr)){
+            $sum=0;
+            foreach ($arr as $item ) {
+                $sum+=floatval($item[0]);
+            }
+            return sprintf('%.2f',$sum);
         }
     }
 }

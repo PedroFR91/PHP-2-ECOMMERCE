@@ -8,7 +8,7 @@
               <?php 
                 foreach ($product->getData('cart') as $item):
                   $cart=$product->getProduct($item['item_id']);
-                  array_map(function($item){
+                  $subTotal[]=array_map(function($item){
               ?>
               <div class="row border-top py-3 mt-3">
                 <div class="col-sm-2">
@@ -74,6 +74,7 @@
                 </div>
               </div>
               <?php
+              return $item['item_price'];
               },$cart);
               endforeach;
               ?>
@@ -86,11 +87,12 @@
                 </h6>
                 <div class="border-top py-4">
                   <h5 class="font-poppins font-size-16">
-                    Subtotal (2 items)&nbsp;
+                    Subtotal (<?php echo count($subTotal)??0; ?> items)&nbsp;
                     <span class="text-danger"
                       >$
-                      <span class="text-danger" id="deal-price">152</span></span
-                    >
+                      <span class="text-danger" id="deal-price">
+                        <?php echo isset($subTotal) ? $Cart->getSum($subTotal):0?>
+                        </span></span>
                   </h5>
                   <button type="submit" class="btn btn-warning mt-3 px-5">
                     Comprar
