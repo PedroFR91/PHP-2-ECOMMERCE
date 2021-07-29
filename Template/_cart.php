@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                   <!--Quantity-->
                   <div class="qty d-flex pt-2">
                     <div class="d-flex font-raleway w-25">
-                      <button class="qty-up border bg-light" data-id="pro1">
+                      <button class="qty-up border bg-light" data-id="<?php echo $item['item_id']??'0'; ?>">
                         <i class="fas fa-angle-up"></i>
                       </button>
                       <input
@@ -54,9 +54,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         disabled
                         value="1"
                         placeholder="1"
-                        data-id="pro1"
+                        data-id="<?php echo $item['item_id']??'0'; ?>"
                       />
-                      <button data-id="pro1" class="qty-down border bg-light">
+                      <button data-id="<?php echo $item['item_id']??'0'; ?>" class="qty-down border bg-light">
                         <i class="fas fa-angle-down"></i>
                       </button>
                     </div>
@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 </div>
                 <div class="col sm-2 text-right">
                   <div class="font-size-20 text-danger font-poppins">
-                    $ <span class="product_price"><?php echo $item['item_price']?></span>
+                    $ <span class="product_price" data-id="<?php echo $item['item_id']??'0'; ?>"><?php echo $item['item_price']?></span>
                   </div>
                 </div>
               </div>

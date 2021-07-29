@@ -61,7 +61,7 @@
       <!--NavBar-->
       <nav class="navbar navbar-expand-lg navbar-dark color-second-bg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Tienda de móviles</a>
+          <a class="navbar-brand" href="index.php">Tienda de móviles</a>
           <button
             class="navbar-toggler"
             type="button"
