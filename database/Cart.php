@@ -17,10 +17,8 @@ class Cart
                 //get table columns
                 $columns=implode(',',array_keys($params));
                 $values=implode(',', array_values($params));
-
                 //sql query
                 $query_string=sprintf("INSERT INTO %s(%s) VALUES (%s)",$table,$columns,$values);
-
                 //execute query
                 $result=$this->db->con->query($query_string);
                 return $result;
@@ -62,5 +60,17 @@ class Cart
             }
             return sprintf('%.2f',$sum);
         }
+    }
+    //get item_id of shopping cart list
+    public function getCardId($cartArray=null,$key='item_id'){
+        if($cartArray!=null){
+            $cart_id=array_map(function($value) use($key){
+                return $value[$key];
+            },$cartArray);
+        }
+        if(isset($cart_id)){
+            return $cart_id;
+        }
+        
     }
 }

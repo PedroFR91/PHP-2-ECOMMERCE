@@ -98,7 +98,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 </h6>
                 <div class="border-top py-4">
                   <h5 class="font-poppins font-size-16">
-                    Subtotal (<?php echo count($subTotal)??0; ?> items)&nbsp;
+                    Subtotal (<?php echo isset($subTotal)? count($subTotal):0; ?> items)&nbsp;
                     <span class="text-danger"
                       >$
                       <span class="text-danger" id="deal-price">

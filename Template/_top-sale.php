@@ -9,6 +9,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
   $Cart->addToCart($_POST['user_id'],$_POST['item_id']);
   }
 }
+$in_cart=$Cart->getCardId($product->getData('cart'));
 ?>
 <section id="top-sale">
         <div class="container py-5">
@@ -40,9 +41,19 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                   <form action="" method="POST">
                     <input type="hidden" name="item_id" value="<?php echo $item['item_id']?>">
                     <input type="hidden" name="user_id" value="<?php echo 1;?>">
-                    <button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">
-                      Añadir a la Cesta
-                    </button>
+                    <?php 
+                      if(in_array($item['item_id'],$in_cart??[])){
+                        echo '<button type="submit" disabled name="top_sale_submit" class="btn btn-success font-size-12">
+                        En la cesta
+                      </button>';
+                      }
+                      else{
+                        echo '<button type="submit" name="top_sale_submit" class="btn btn-warning font-size-12">
+                        Añadir a la Cesta
+                      </button>';
+                      }
+                    ?>
+                    
                   </form>
                   
                 </div>
