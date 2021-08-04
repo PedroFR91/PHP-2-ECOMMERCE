@@ -5,7 +5,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   }
   //save for later
   if(isset($_POST['wishlist-submit'])){
-    $Cart->saveForLater($_POST['item-id']);
+    $Cart->saveForLater($_POST['item_id']);
   }
 } 
 ?>
@@ -84,8 +84,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                       Guardar para más tarde
                     </button>
                   </form>
-
-               
                   </div>
                 </div>
                 <div class="col sm-2 text-right">

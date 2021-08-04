@@ -4,7 +4,8 @@ include 'header.php';
 ?>
 
 <?php
-include './Template/_cart.php';
+
+count($product->getData('cart')) ? include './Template/_cart.php': include './Template/notFound/_cart_notFound.php';
 include './Template/_wishlist.php';
 include './Template/_new-phones.php';
 ?>

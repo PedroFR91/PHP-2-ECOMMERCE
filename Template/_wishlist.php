@@ -1,13 +1,12 @@
 <?php
-if($_SERVER['REQUEST_METHOD']=='POST'){
-  if(isset($_POST['delete-cart-submit'])){
-    $deletedrecord=$Cart->deleteCart($_POST['item_id']);
-  }
-  //save for later
-  if(isset($_POST['wishlist-submit'])){
-    $Cart->saveForLater($_POST['item-id']);
-  }
-} 
+if ($_SERVER['REQUEST_METHOD']=='POST') {
+    if(isset($_POST['delete-cart-submit'])){
+      $deletedrecord=$Cart->deleteCart($_POST['item_id'],'wishlist');
+    }
+    if(isset($_POST['cart-submit'])){
+      $Cart->saveForLater($_POST['item_id'],'cart','wishlist');
+    }
+}
 ?>
 <section id="cart" class="py-3 mb-5">
         <div class="container-fluid w-75">
@@ -17,7 +16,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             <div class="col-sm-9">
               <!--Items-->
               <?php 
-                foreach ($product->getData('cart') as $item):
+                foreach ($product->getData('wishlist') as $item):
                   $cart=$product->getProduct($item['item_id']);
                   $subTotal[]=array_map(function($item){
               ?>
@@ -63,7 +62,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                       <input type="hidden" value="<?php echo $item['item_id'] ?? 0;?>" name="item_id">
                       <button
                       type="submit"
-                      name="wishlist-submit"
+                      name="cart-submit"
                       class="btn font-poppins text-danger px-3 border-right"
                     >
                       Añadir a la cesta
