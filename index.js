@@ -109,6 +109,8 @@ $(document).ready(function () {
                 //set subtotal price
                 let subtotal = parseInt($deal_price.text()) - parseInt(item_price);
                 $deal_price.text(subtotal.toFixed(2));
+
+
             }
         });//closing ajax request
 

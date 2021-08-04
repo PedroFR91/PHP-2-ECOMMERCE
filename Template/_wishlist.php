@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 ?>
 <section id="cart" class="py-3 mb-5">
         <div class="container-fluid w-75">
-          <h5 class="font-roboto font-size-20">Cesta</h5>
+          <h5 class="font-roboto font-size-20">Lista de deseos</h5>
           <!--Cart Items-->
           <div class="row">
             <div class="col-sm-9">
@@ -48,28 +48,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                   </div>
                   <!--Quantity-->
                   <div class="qty d-flex pt-2">
-                    <div class="d-flex font-raleway w-25">
-                      <button class="qty-up border bg-light" data-id="<?php echo $item['item_id']??'0'; ?>">
-                        <i class="fas fa-angle-up"></i>
-                      </button>
-                      <input
-                        type="text"
-                        class="qty-input border px-2 w-100 bg-light"
-                        disabled
-                        value="1"
-                        placeholder="1"
-                        data-id="<?php echo $item['item_id']??'0'; ?>"
-                      />
-                      <button data-id="<?php echo $item['item_id']??'0'; ?>" class="qty-down border bg-light">
-                        <i class="fas fa-angle-down"></i>
-                      </button>
-                    </div>
+                   
                     <form method="post">
                       <input type="hidden" value="<?php echo $item['item_id'] ?? 0;?>" name="item_id">
                     <button
                       type="submit"
                       name="delete-cart-submit"
-                      class="btn font-poppins text-danger px-3 border-right"
+                      class="btn font-poppins text-danger pl-0 pr-3 border-right"
                     >
                       Eliminar
                     </button>
@@ -81,7 +66,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                       name="wishlist-submit"
                       class="btn font-poppins text-danger px-3 border-right"
                     >
-                      Guardar para más tarde
+                      Añadir a la cesta
                     </button>
                   </form>
 
@@ -99,27 +84,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
               },$cart);
               endforeach;
               ?>
-            </div>
-            <!--Subtotal-->
-            <div class="col-sm-3">
-              <div class="sub-total text-center mt-2 border">
-                <h6 class="font-size-12 font-raleway text-succes py-3">
-                  <i class="fas fa-check"></i> Tu pedido tiene entrega gratuita
-                </h6>
-                <div class="border-top py-4">
-                  <h5 class="font-poppins font-size-16">
-                    Subtotal (<?php echo isset($subTotal)? count($subTotal):0; ?> items)&nbsp;
-                    <span class="text-danger"
-                      >$
-                      <span class="text-danger" id="deal-price">
-                        <?php echo isset($subTotal) ? $Cart->getSum($subTotal):0 ?>
-                        </span></span>
-                  </h5>
-                  <button type="submit" class="btn btn-warning mt-3 px-5">
-                    Comprar
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
